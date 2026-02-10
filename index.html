@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For cutuuu ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .card {
+    background: white;
+    padding: 35px;
+    max-width: 650px;
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  h1 {
+    color: #ff3f6c;
+    margin-bottom: 15px;
+  }
+
+  #typing {
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 160px;
+    margin-bottom: 25px;
+    color: #444;
+  }
+
+  h2 {
+    color: #ff3f6c;
+    margin-bottom: 20px;
+  }
+
+  .buttons {
+    position: relative;
+    height: 110px;
+  }
+
+  button {
+    padding: 14px 30px;
+    font-size: 17px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    transition: 0.2s ease;
+  }
+
+  #yesBtn {
+    background: #ff3f6c;
+    color: white;
+    left: 35%;
+  }
+
+  #noBtn {
+    background: #eee;
+    color: #555;
+    left: 55%;
+  }
+
+  .heart {
+    position: absolute;
+    bottom: 0;
+    color: #ff3f6c;
+    font-size: 18px;
+    animation: float 6s linear infinite;
+    opacity: 0.6;
+  }
+
+  @keyframes float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-900px); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Hey cutuuu ❤️</h1>
+
+  <div id="typing"></div>
+
+  <h2>Will you go out with me? 💕</h2>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="sayYes()">Yes 💖</button>
+    <button id="noBtn" onmouseover="escapeNo()">No 🙈</button>
+  </div>
+</div>
+
+<script>
+  /* Typing love paragraph */
+  const text = `From the very first day I met you at the office,
+something quietly changed inside me.
+What started as simple conversations and small moments
+slowly became something I couldn’t ignore.
+
+Somewhere between laughter, random talks,
+and waiting to see you again,
+I didn’t just start liking you.
+
+I fell for you.
+Very, very, very much.`;
+
+  let i = 0;
+  function typeText() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeText, 35);
+    }
+  }
+  typeText();
+
+  /* Mischievous NO button */
+  function escapeNo() {
+    const noBtn = document.getElementById("noBtn");
+    const card = document.querySelector(".card");
+
+    const maxX = card.offsetWidth - noBtn.offsetWidth;
+    const maxY = card.offsetHeight - noBtn.offsetHeight;
+
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+    noBtn.style.transform = "scale(0.9)";
+  }
+
+  /* YES opens next sheet */
+  function sayYes() {
+    window.open("her_words.html", "_blank");
+  }
+
+  /* Floating hearts */
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (Math.random() * 20 + 12) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  setInterval(createHeart, 900);
+</script>
+
+</body>
+</html>
