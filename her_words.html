@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Things You Say, cutuuu ❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #fdfbfb, #ebedee);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  .container {
+    background: white;
+    padding: 40px;
+    max-width: 750px;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    animation: fadeIn 2s ease;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ff3f6c;
+    margin-bottom: 25px;
+  }
+
+  .para {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .quote {
+    background: #fff0f5;
+    border-left: 6px solid #ff3f6c;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 15px;
+    font-size: 18px;
+    color: #333;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: popUp 0.8s ease forwards;
+  }
+
+  .end {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 20px;
+    color: #ff3f6c;
+    font-weight: bold;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes popUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .heart {
+    position: fixed;
+    bottom: 0;
+    color: #ff3f6c;
+    font-size: 18px;
+    animation: float 6s linear infinite;
+    opacity: 0.5;
+  }
+
+  @keyframes float {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-900px); opacity: 0; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>cutuuu ❤️</h1>
+
+  <div class="para">
+    I notice things.  
+    The way you talk, the way you stretch your words, the drama, the excitement,
+    the random madness that just spills out of you.
+    <br><br>
+    I notice how you turn ordinary moments into funny ones,
+    how your expressions have their own language,
+    and how without even trying, you make people smile.
+    <br><br>
+    Somewhere between hearing you say these things again and again,
+    I fell in love — not just with your words,
+    but with *you*.
+  </div>
+
+  <div id="quotes"></div>
+
+  <div class="end">
+    And honestly… I love every single one of them 💞
+  </div>
+</div>
+
+<script>
+  const lines = [
+    "Thisssss ISSSS CRAAAZZZYYYYY 😵‍💫",
+    "PAGALLLLL haiiiii kyaaaaaaaa 😭",
+    "MUJHEEEEE sharammmmm aaaa rahiiiii haiiiiii 🙈",
+    "Guysssssss khaneeeeee chaleeeeeeeeein? 🍽️",
+    "Guysssss youuu knowww whattt happenedddd (major gossip) 😏",
+    "Tu bhi naaaaaa yaaaaaaaarrrrrr 🥹",
+    "STUPPPIDDDDDDDDD 🤦‍♂️",
+    "Chappriiiiii haiiiiiiiii kyaaaaa?? 😂"
+  ];
+
+  const container = document.getElementById("quotes");
+
+  lines.forEach((text, index) => {
+    setTimeout(() => {
+      const div = document.createElement("div");
+      div.className = "quote";
+      div.innerText = text;
+      container.appendChild(div);
+    }, index * 600);
+  });
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (Math.random() * 15 + 12) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+  }
+
+  setInterval(createHeart, 800);
+</script>
+
+</body>
+</html>
